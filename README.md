@@ -4,7 +4,7 @@ Research and sales plan for **ClawFriend** — Web3 AI Agent Platform with Skill
 
 ## Presentation
 
-**Web Presentation:** Run locally with `cd presentation && npm install && npm run dev`, or deploy to [Netlify](https://www.netlify.com/) (configure base directory: `presentation`, build command: `npm run build`, publish: `dist`).
+**Web Presentation:** [https://dashing-raindrop-5115aa.netlify.app/](https://dashing-raindrop-5115aa.netlify.app/) — Run locally: `cd presentation && npm run dev`
 
 ---
 
