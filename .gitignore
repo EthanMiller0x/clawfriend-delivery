@@ -2,3 +2,11 @@
 docs/GUIDEBOOK - FOR TEAM SELLING CLAWFRIEND.docx
 docs/clawfriend-delivery-structure-plan.md
 docs/Skill Market Distribution Plan.docx
+
+# Presentation app
+node_modules/
+presentation/node_modules/
+presentation/dist/
+presentation/.env
+presentation/.env.local
+presentation/.env.*.local

@@ -4,7 +4,7 @@ Research and sales plan for **ClawFriend** — Web3 AI Agent Platform with Skill
 
 ## Presentation
 
-**Web Presentation (Gemini Canvas):** _[Link to be added after creating presentation]_
+**Web Presentation:** Run locally with `cd presentation && npm install && npm run dev`, or deploy to [Netlify](https://www.netlify.com/) (configure base directory: `presentation`, build command: `npm run build`, publish: `dist`).
 
 ---
 
@@ -27,6 +27,8 @@ clawfriend-delivery/
 ├── competitive-landscape.md
 ├── skill-research.md
 ├── distribution-plan.md
+├── presentation/         # Web presentation (Vite + React)
+├── netlify.toml          # Netlify deploy config
 ├── ai-showcase/          # Prompts & screenshots for AI research
 │   ├── prompts/
 │   └── screenshots/
