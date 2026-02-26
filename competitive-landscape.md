@@ -55,7 +55,7 @@
   - Tập trung vào nghiên cứu học thuật dài hạn thay vì các tác vụ Web3 "nóng" (Trading, Airdrop) 
 
 ### 3. ai16z (Framework: ElizaOS)
-- **Link:** [**ai16z / ElizaOS**](https://eliza.ai/) — [Coin98](https://coin98.net/ai16z-ai-agent) | [Coin68](https://coin68.com/ai16z-la-gi/)
+- **Link:** [**ai16z / ElizaOS**](https://elizaos.ai/)
 - **Vị thế:** "Kẻ thách thức" mô hình VC truyền thống bằng AI. Chủ nhân của Framework AI Agent phổ biến nhất thế giới (ElizaOS v2/2026).
 - **Description:** Là một **AI Investment DAO** (Quỹ đầu tư mạo hiểm phi tập trung) vận hành bởi AI Agent tên **Marc AIndreessen**. Dự án sử dụng framework **ElizaOS** để biến AI thành "nhân viên" có khả năng phân tích tâm lý cộng đồng và thực thi giao dịch on-chain. Không chỉ làm Marketplace mà đang xây dựng cả "Hệ điều hành" cho AI Agent.
 - **User/Download/GMV:** 

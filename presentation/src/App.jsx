@@ -210,7 +210,7 @@ const App = () => {
             <p className="text-sm text-slate-400 mb-4">Hỗ trợ Creators tự động đăng bài và tương tác đa nền tảng.</p>
             <div className="flex justify-between items-center text-xs">
               <span className="bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded">Creator Economy</span>
-              <span className="text-slate-500">Evidence: MyShell</span>
+              <span className="text-slate-500">Evidence: Virtuals Protocol (LUNA Agent)</span>
             </div>
           </div>
           <div className="p-6 rounded-2xl bg-slate-800/40 border border-slate-700 hover:border-pink-500/50 transition-all group col-span-2">
@@ -349,9 +349,14 @@ const App = () => {
             Mọi số liệu và chiến lược đều được chuẩn bị sẵn sàng để thực thi. ClawFriend sẽ không chỉ là một Marketplace, mà là trái tim của nền kinh tế AI trên BNB Chain.
           </p>
           <div className="flex gap-4">
-            <button className="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-2xl font-bold transition-all flex items-center gap-2">
+            <a 
+              href="https://github.com/EthanMiller0x/clawfriend-delivery" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-blue-600 hover:bg-blue-700 rounded-2xl font-bold transition-all flex items-center gap-2"
+            >
               <ExternalLink size={20} /> View Github Repo
-            </button>
+            </a>
             <button className="px-8 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-2xl font-bold transition-all">
               Contact Team
             </button>
