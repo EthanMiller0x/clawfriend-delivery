@@ -14,7 +14,9 @@ import {
   ExternalLink,
   MessageSquare,
   Globe,
-  Rocket
+  Rocket,
+  Leaf,
+  FileText
 } from 'lucide-react';
 
 const App = () => {
@@ -210,7 +212,7 @@ const App = () => {
             <p className="text-sm text-slate-400 mb-4">Hỗ trợ Creators tự động đăng bài và tương tác đa nền tảng.</p>
             <div className="flex justify-between items-center text-xs">
               <span className="bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded">Creator Economy</span>
-              <span className="text-slate-500">Evidence: Virtuals Protocol (LUNA Agent)</span>
+              <span className="text-slate-500">Evidence: Virtuals</span>
             </div>
           </div>
           <div className="p-6 rounded-2xl bg-slate-800/40 border border-slate-700 hover:border-pink-500/50 transition-all group col-span-2">
@@ -234,18 +236,27 @@ const App = () => {
           <div className="space-y-4">
             <h4 className="font-bold text-slate-300 mb-4">Phân bổ ngân sách tháng 1:</h4>
             {[
-              { label: 'X (Twitter) Ads', value: 4000, color: 'bg-blue-500', icon: <Globe size={16}/> },
-              { label: 'AI Newsletters (Rundown/TLDR)', value: 4500, color: 'bg-purple-500', icon: <TrendingUp size={16}/> },
-              { label: 'Micro-KOL & KOC', value: 1500, color: 'bg-emerald-500', icon: <Users size={16}/> },
+              { label: 'X (Twitter) Ads', value: 4000, color: 'bg-blue-500', icon: <Globe size={16}/>, type: 'paid' },
+              { label: 'AI Newsletters (Rundown/TLDR)', value: 4500, color: 'bg-purple-500', icon: <TrendingUp size={16}/>, type: 'paid' },
+              { label: 'Micro-KOL & KOC', value: 1500, color: 'bg-emerald-500', icon: <Users size={16}/>, type: 'paid' },
+              { label: 'Reddit & Community', value: 0, color: 'bg-amber-500/50', icon: <Leaf size={16}/>, type: 'organic' },
+              { label: 'Technical Blog & Mirror', value: 0, color: 'bg-amber-500/50', icon: <FileText size={16}/>, type: 'organic' },
             ].map((item, idx) => (
               <div key={idx} className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
                 <div className="flex justify-between mb-2">
-                  <span className="flex items-center gap-2 text-sm text-slate-300">{item.icon} {item.label}</span>
-                  <span className="font-bold text-white">${item.value.toLocaleString()}</span>
+                  <span className="flex items-center gap-2 text-sm text-slate-300">
+                    {item.icon} {item.label}
+                    <span className={`text-xs px-2 py-0.5 rounded ${item.type === 'organic' ? 'bg-amber-500/20 text-amber-400' : 'bg-blue-500/20 text-blue-400'}`}>
+                      {item.type === 'organic' ? 'Organic' : 'Paid'}
+                    </span>
+                  </span>
+                  <span className="font-bold text-white">{item.value > 0 ? `$${item.value.toLocaleString()}` : '—'}</span>
                 </div>
-                <div className="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
-                  <div className={`${item.color} h-full`} style={{ width: `${(item.value / 10000) * 100}%` }}></div>
-                </div>
+                {item.value > 0 && (
+                  <div className="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                    <div className={`${item.color} h-full`} style={{ width: `${(item.value / 10000) * 100}%` }}></div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -285,51 +296,62 @@ const App = () => {
     {
       id: 'ai-showcase',
       title: 'AI Workflow Showcase',
-      subtitle: 'Cách chúng tôi sử dụng AI để tối ưu hóa nghiên cứu',
+      subtitle: 'Quy trình nghiên cứu 3 deliverables với Gemini 3 & AI tools',
       content: (
-        <div className="grid grid-cols-2 gap-8 items-center h-full">
-          <div className="bg-slate-950 rounded-2xl p-6 border border-slate-800 font-mono text-xs text-blue-300 shadow-2xl">
-            <div className="flex gap-2 mb-4 border-b border-slate-800 pb-2">
-              <div className="w-3 h-3 rounded-full bg-red-500"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+        <div className="grid grid-cols-2 gap-8 items-stretch h-full">
+          {/* Left: Prompt examples */}
+          <div className="space-y-4">
+            <div className="bg-slate-950 rounded-2xl p-5 border border-slate-800 font-mono text-xs text-blue-300 shadow-2xl">
+              <div className="flex gap-2 mb-3 border-b border-slate-800 pb-2">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-500"></div>
+                <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+              </div>
+              <p className="text-slate-500 mb-2">// 01. Competitive Landscape (Gemini 3)</p>
+              <p className="mb-1 text-slate-400">&quot;You are a Web3 market analyst. Analyze 5-10 competitors in AI Agent marketplace...&quot;</p>
+              <p className="mb-2 text-slate-400">&quot;Metrics: market cap, users, GitHub stars. Cite sources. Do not invent data.&quot;</p>
+              <p className="text-slate-500 mb-2 mt-3">// 02. Skill Research (demand evidence)</p>
+              <p className="mb-1 text-purple-400">&quot;5-10 skill ideas with STRONG demand evidence — search vol, paid tools, case studies...&quot;</p>
+              <p className="mb-2 text-purple-400">&quot;Prioritize Web3-native: DeFi, airdrop, honeypot, yield.&quot;</p>
+              <p className="text-slate-500 mb-2 mt-3">// 03. Distribution Plan ($10K GTM)</p>
+              <p className="mb-1 text-emerald-400">&quot;3-5 channels (paid + organic). Intern-executable checklist. CPC, CAC, ROI scenarios.&quot;</p>
+              <div className="mt-3 animate-pulse text-slate-600">▌</div>
             </div>
-            <p className="text-slate-500 mb-2">// Prompt used for competitor research</p>
-            <p className="mb-2">&quot;Act as a Senior Crypto VC Analyst. Research 10 AI Agent marketplaces...&quot;</p>
-            <p className="mb-2 text-purple-400">&quot;Focus on: TVL, Volume, unique selling points, and 2026 trends...&quot;</p>
-            <p className="text-slate-500 mb-2 mt-4">// Output verified with Grounding Search</p>
-            <p className="mb-2 text-emerald-400">&quot;Virtuals Protocol current MCAP: $486M (Live data 02/2026)&quot;</p>
-            <p className="mb-2 text-emerald-400">&quot;Top search volume skills: &apos;Rug-pull shield for AI&apos; (+145% YoY)&quot;</p>
-            <div className="mt-4 animate-pulse">_</div>
           </div>
-          <div className="space-y-6">
-            <h4 className="text-xl font-bold text-slate-200">Tools & Workflow:</h4>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400">
+          {/* Right: Tools & workflow steps */}
+          <div className="space-y-5">
+            <h4 className="text-lg font-bold text-slate-200">Tools & Workflow:</h4>
+            <div className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/50 border border-slate-700">
+              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 flex-shrink-0">
                 <MessageSquare size={24} />
               </div>
               <div>
-                <p className="font-semibold">Gemini 2.5 Flash</p>
-                <p className="text-sm text-slate-400">Deep research & data verification</p>
+                <p className="font-semibold text-white">Gemini 3</p>
+                <p className="text-sm text-slate-400">Deep research 3 deliverables — Competitive, Skills, GTM. Grounding Search để verify số liệu thực tế.</p>
               </div>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center text-purple-400">
+            <div className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/50 border border-slate-700">
+              <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center text-purple-400 flex-shrink-0">
                 <Search size={24} />
               </div>
               <div>
-                <p className="font-semibold">Google Keyword Planner</p>
-                <p className="text-sm text-slate-400">Validating demand for skills (Search Vol)</p>
+                <p className="font-semibold text-white">Google Keyword Planner</p>
+                <p className="text-sm text-slate-400">Validate demand cho skills (search volume, CPC benchmarks).</p>
               </div>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center text-emerald-400">
+            <div className="flex items-center gap-4 p-3 rounded-xl bg-slate-800/50 border border-slate-700">
+              <div className="w-12 h-12 bg-emerald-500/20 rounded-xl flex items-center justify-center text-emerald-400 flex-shrink-0">
                 <Zap size={24} />
               </div>
               <div>
-                <p className="font-semibold">Canvas Visualization</p>
-                <p className="text-sm text-slate-400">Creating dynamic pitch environment</p>
+                <p className="font-semibold text-white">Cursor + Vite/React</p>
+                <p className="text-sm text-slate-400">Build presentation, refactor prompts từ ai-showcase/prompts/.</p>
               </div>
+            </div>
+            <div className="bg-blue-500/5 border border-blue-500/20 p-3 rounded-xl mt-2">
+              <p className="text-sm text-slate-400">
+                <strong className="text-blue-400">Output:</strong> competitive-landscape.md, skill-research.md, distribution-plan.md → Web presentation
+              </p>
             </div>
           </div>
         </div>
